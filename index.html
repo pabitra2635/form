@@ -86,13 +86,29 @@
 
             <label for="feedback">Feedback:</label>
             <textarea id="feedback" style="border-radius: 15px; ;" name="feedback" rows="4" placeholder="Give Your Valuable FeedBack Here..." required></textarea>
+            <div class="h-captcha" style="margin-left: 30%;" data-captcha="true"></div>
 
             <button type="submit">Submit</button>
         </form>
         <div id="responseMessage"></div>
     </div>
+    <script src="https://web3forms.com/client/script.js" async defer></script>
     <script >
-       alert("Thank you! Your message has been successfully sent. I will reply you soon...");
+       alert("Thank you! Your message has been successfully sent to Pabitra. He Will Reply You Soon...Now,give your valuable feedback,if you interested.");
     </script>
+    <script>
+        const form = document.getElementById('feedbackForm');
+        
+        form.addEventListener('submit', function(e) {
+        
+            const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+        
+            if (!hCaptcha) {
+                e.preventDefault();
+                alert("Please fill out captcha field")
+                return
+            }
+        });
+        </script>
 </body>
 </html>
